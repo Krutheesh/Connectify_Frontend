@@ -1,6 +1,6 @@
 // HomePage.jsx
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { UsersIcon, MapPinIcon, CheckCircleIcon, UserPlusIcon } from 'lucide-react';
 
 import FriendCard, { getLanguageFlag } from '../components/FriendCard';
@@ -12,12 +12,15 @@ import { useRecommendedUsers } from '../hooks/useRecommendedUsers';
 import { useOutgoingRequests } from '../hooks/useOutgoingRequests';
 import { useFriendActions } from '../hooks/useFriendActions';
 import useProfile from '../hooks/useProfile';
+import { useSelector } from 'react-redux';
 
 const HomePage = () => {
   const { friends, loading: loadingFriends, fetchFriends } = useFriends();
   const { recommendedUsers, loading: loadingUsers, fetchRecommendedUsers } = useRecommendedUsers();
   const { outgoingRequests, fetchOutgoingRequests } = useOutgoingRequests();
   const { handleSendRequest, sending } = useFriendActions();
+  const {user} = useSelector((state) => state.auth);
+  const navigate = useNavigate();
  const {fetchProfile} = useProfile()
   const [outgoingRequestsIds, setOutgoingRequestsIds] = useState(new Set());
  console.log(friends);
@@ -29,6 +32,9 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
+    if(!user){
+     navigate('/login');
+    }
     const ids = new Set();
     outgoingRequests.forEach((req) => ids.add(req.recipient._id));
     setOutgoingRequestsIds(ids);
