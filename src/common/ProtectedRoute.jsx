@@ -1,32 +1,20 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Navigate, useLocation, useNavigate } from 'react-router';
+import React from "react";
+import { Navigate } from "react-router";
+import { useSelector } from "react-redux";
+import PageLoader from "../components/PageLoader";
 
-const ProtectedRoute = ({ children, onboardingOnly = false }) => {
-  const { user, loading } = useSelector((state) => state.auth);
-  const [ready, setReady] = useState(false);
+const ProtectedRoute = ({ children }) => {
+  const { user, authChecked } = useSelector((state) => state.auth);
 
-  const navigate = useNavigate();
-  const location = useLocation();
+  // Wait until auth check finishes in App.js
+  if (!authChecked) {
+    return <PageLoader/> // don’t render anything, App.js already shows PageLoader
+  }
 
-  useEffect(() => {
-    if (!loading) {
-      const isAuthenticated = !!user;
-      const isOnboarded = user?.isOnboarded;
-
-      if (!isAuthenticated) {
-        navigate('/login', { replace: true, state: { from: location } });
-      } else if (onboardingOnly && isOnboarded) {
-        navigate('/', { replace: true });
-      } else if (!onboardingOnly && !isOnboarded) {
-        navigate('/onboard', { replace: true });
-      } else {
-        setReady(true);
-      }
-    }
-  }, [loading, user, onboardingOnly, navigate, location]);
-
-  if (!ready) return <div>Loading...</div>;
+  // If no user after auth check → redirect
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
 
   return children;
 };

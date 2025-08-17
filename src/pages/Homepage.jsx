@@ -21,11 +21,11 @@ const HomePage = () => {
   const { handleSendRequest, sending } = useFriendActions();
   const {user} = useSelector((state) => state.auth);
   const navigate = useNavigate();
- const {fetchProfile} = useProfile()
+ 
   const [outgoingRequestsIds, setOutgoingRequestsIds] = useState(new Set());
- console.log(friends);
+//  console.log(friends);
   useEffect(() => {
-    fetchProfile()
+    
     fetchFriends();
     fetchRecommendedUsers();
     fetchOutgoingRequests();

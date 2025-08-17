@@ -40,7 +40,7 @@ export const logout = async () => {
 export const getProfile = async () => {
   try {
     const res = await api.get('/api/auth/me');
-    console.log('User profile fetched:', res.data.user);
+    // console.log('User profile fetched:', res.data.user);
     return res.data.user;
   } catch (error) {
     handleError(error);

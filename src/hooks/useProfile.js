@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authStart, authSuccess, authFailure } from '../store/authSlice';
 import { getProfile } from '../services/authService';
 import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 const useProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,6 +21,10 @@ const useProfile = () => {
     }
   };
 
+  useEffect(() => {
+    // Fetch user profile on component mount
+    fetchProfile();
+  }, [dispatch]);
   return {  user,fetchProfile, loading, error };
 };
 
