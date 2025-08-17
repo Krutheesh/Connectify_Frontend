@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ShipWheelIcon } from "lucide-react";
 import { Link } from "react-router";
 import useLogin from "../hooks/useLogin";
-
+import Illustarion from '../assets/illustration.webp';
 const Login = () => {
   const { login, loading, error } = useLogin();
   const [loginData, setLoginData] = useState({
@@ -119,7 +119,7 @@ const Login = () => {
             {/* Illustration */}
             <div className="relative aspect-square max-w-sm mx-auto">
               <img
-                src="/i.png"
+                src={Illustarion}
                 alt="Language connection illustration"
                 className="w-full h-full"
               />
