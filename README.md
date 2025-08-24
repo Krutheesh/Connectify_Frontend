@@ -60,23 +60,23 @@ npm run dev
 ## 6️⃣ Open the app in your browser
 ### http://localhost:5173/
 =======
-# 1️⃣ Clone the frontend repository
+## 1️⃣ Clone the frontend repository
 git clone https://github.com/your-username/Connectify-Frontend.git
 
-# 2️⃣ Go into the project directory
+## 2️⃣ Go into the project directory
 cd Connectify-Frontend
 
-# 3️⃣ Install dependencies
+## 3️⃣ Install dependencies
 npm install
 
-# 4️⃣ Set up environment variables
-# Create a .env file in the root directory and add:
-# VITE_BACKEND_URL=http://localhost:5000  # Replace with your backend URL
-# VITE_STREAMIFY_KEY=your_streamify_api_key
+## 4️⃣ Set up environment variables
+### Create a .env file in the root directory and add:
+### VITE_BACKEND_URL=http://localhost:5000  # Replace with your backend URL
+### VITE_STREAMIFY_KEY=your_streamify_api_key
 
-# 5️⃣ Start the development server
+## 5️⃣ Start the development server
 npm run dev
 
-# 6️⃣ Open the app in your browser
-# http://localhost:5173/
+## 6️⃣ Open the app in your browser
+## http://localhost:5173/
 
