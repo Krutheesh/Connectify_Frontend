@@ -34,9 +34,10 @@ It provides real-time **video calls, chat, friend requests, and authentication**
 - Streamify (real-time video & chat)  
 
 
-## 🚀 Getting Started – Frontend 
+## 🚀 Frontend Setup
 
 Follow these steps to set up and run the frontend locally:
+
 
 
 ## 1️⃣ Clone the frontend repository
@@ -58,4 +59,24 @@ npm run dev
 
 ## 6️⃣ Open the app in your browser
 ### http://localhost:5173/
+=======
+# 1️⃣ Clone the frontend repository
+git clone https://github.com/your-username/Connectify-Frontend.git
+
+# 2️⃣ Go into the project directory
+cd Connectify-Frontend
+
+# 3️⃣ Install dependencies
+npm install
+
+# 4️⃣ Set up environment variables
+# Create a .env file in the root directory and add:
+# VITE_BACKEND_URL=http://localhost:5000  # Replace with your backend URL
+# VITE_STREAMIFY_KEY=your_streamify_api_key
+
+# 5️⃣ Start the development server
+npm run dev
+
+# 6️⃣ Open the app in your browser
+# http://localhost:5173/
 
