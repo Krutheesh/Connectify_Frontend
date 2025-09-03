@@ -19,7 +19,7 @@ const SignUp = () => {
   }
   return (
     <div
-      className=" flex items-center justify-center p-4 sm:p-6 md:p-8"
+      className=" h-[100vh] md:h-full flex items-center justify-center p-4 sm:p-6 md:p-8"
       data-theme="forest"
     >
       <div className="border border-primary/25 flex flex-col lg:flex-row w-full max-w-5xl mx-auto bg-base-100 rounded-xl shadow-lg overflow-hidden">
